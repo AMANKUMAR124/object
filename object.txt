@@ -1,0 +1,114 @@
+
+Here are the answers to your Java-related questions:
+
+1. How to Create an Object in Java?
+
+In Java, an object is created using the new keyword followed by a call to a constructor of the class.
+
+Syntax:
+
+java
+Copy code
+ClassName objectName = new ClassName();
+Example:
+
+java
+Copy code
+class Car {
+    String model;
+    int year;
+
+    // Constructor
+    Car(String model, int year) {
+        this.model = model;
+        this.year = year;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an object of the Car class
+        Car myCar = new Car("Tesla", 2024);
+        System.out.println("Car model: " + myCar.model + ", Year: " + myCar.year);
+    }
+}
+In this example, myCar is an object of the Car class.
+
+2. What is the use of a new keyword in Java?
+
+The new keyword in Java is used to create new objects. When you use new, memory is allocated for the object on the heap, and the constructor of the class is called to initialize the object.
+
+Example:
+
+java
+Copy code
+Car myCar = new Car("Tesla", 2024);
+Here, new creates a new instance of the Car class and assigns it to the myCar reference.
+
+3. What are the different types of variables in Java?
+
+Java has several types of variables, which can be classified into four main categories:
+
+Instance variables: These are non-static variables that belong to an instance of a class. They are specific to an object and hold values that can differ for each object.
+
+Class variables (Static variables): These variables are declared with the static keyword and belong to the class, not any particular instance. All instances of the class share the same class variable.
+
+Local variables: These are variables declared inside a method or block. They can only be used within that method or block.
+
+Parameters: These are variables that are passed into methods or constructors. They are treated like local variables but are used specifically for method input.
+
+4. What is the difference between Instance variable and Local variables?
+
+Instance Variable	Local Variable
+Declared inside a class but outside any method or block.	Declared inside a method, constructor, or block.
+Each object of the class has its own copy of instance variables.	Local variables only exist within the method/block they are defined in.
+Can have default values (e.g., null for object references, 0 for integers).	Must be explicitly initialized before use.
+Scope is throughout the class.	Scope is limited to the method or block where declared.
+Can have access modifiers (e.g., private, public).	Cannot have access modifiers.
+5. In which area memory is allocated for instance variable and local variable?
+
+Instance variable: Memory for instance variables is allocated on the heap. This memory is allocated when an object is created and is specific to each instance (object) of the class.
+
+Local variable: Memory for local variables is allocated on the stack. These variables are created when the method or block in which they are declared is invoked and are destroyed when the method or block finishes execution.
+
+6. What is method overloading?
+
+Method overloading in Java is the ability to define multiple methods with the same name but different parameters (either in type, number, or both). It allows you to perform the same operation with different types or numbers of inputs.
+
+Key points:
+
+Methods must differ in the number or type of parameters (not just the return type).
+It is resolved at compile-time (static polymorphism).
+Example:
+
+java
+Copy code
+class Calculator {
+    // Method to add two integers
+    int add(int a, int b) {
+        return a + b;
+    }
+    
+    // Method to add three integers
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+    
+    // Method to add two doubles
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        
+        System.out.println(calc.add(2, 3));          // Calls add(int, int)
+        System.out.println(calc.add(2, 3, 4));       // Calls add(int, int, int)
+        System.out.println(calc.add(2.5, 3.5));      // Calls add(double, double)
+    }
+}
+In this example, the method add is overloaded to handle different types and numbers of parameters.
+
+
